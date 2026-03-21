@@ -1,0 +1,16 @@
+{
+  "name": "stadium-app",
+  "version": "1.0.0",
+  "description": "Australian Stadiums Demo App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
