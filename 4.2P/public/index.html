@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Australian Stadiums</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Australian Stadiums</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Cards will be injected here -->
+        <div class="row" id="card-section"></div>
+
+        <!-- Add Stadium Form -->
+        <div class="form-section">
+            <h5>Add New Stadium</h5>
+
+            <div class="input-field">
+                <input id="stadiumName" type="text">
+                <label for="stadiumName">Stadium Name</label>
+            </div>
+
+            <div class="input-field">
+                <input id="city" type="text">
+                <label for="city">City</label>
+            </div>
+
+            <div class="input-field">
+                <input id="capacity" type="number">
+                <label for="capacity">Capacity</label>
+            </div>
+
+            <div class="input-field">
+                <input id="openedYear" type="number">
+                <label for="openedYear">Opened Year</label>
+            </div>
+
+            <div class="input-field">
+                <input id="homeTeams" type="text">
+                <label for="homeTeams">Home Teams (comma separated)</label>
+            </div>
+
+            <div class="input-field">
+                <input id="image" type="text">
+                <label for="image">Image filename (e.g., mcg.jpg)</label>
+            </div>
+
+            <button id="formSubmit" class="btn blue">Submit</button>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
