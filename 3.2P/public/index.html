@@ -5,45 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stadiums in Australia</title>
-
-    <!-- Materialize CSS & Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Your CSS -->
-    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#!" class="brand-logo center">Stadiums in Australia</a>
+            <!-- removed Details / Click Me nav links -->
+        </div>
+    </nav>
 
-    <div class="container center-align">
-        <h4>Stadiums in Australia</h4>
-
-        <!-- Click Me button -->
-        <div class="col s12 center-align">
-            <a class="waves-effect waves-light btn modal-trigger" id="clickMeButton" data-target="stadium-modal">
-                Click Me
-            </a>
+    <div class="container">
+        <div class="row center-align" style="margin: 1rem 0;">
+            <button id="detailsButton" class="btn waves-effect waves-light">Details</button>
+            <button id="clickMeButton" class="btn waves-effect waves-light">Click Me</button>
         </div>
 
-        <!-- Cards Section -->
         <div class="row" id="card-section"></div>
-    </div>
 
-    <!-- Stadium Modal -->
-    <div id="stadium-modal" class="modal">
-        <div class="modal-content" id="modal-content"></div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        <div id="stadium-modal" class="modal">
+            <div class="modal-content">
+                <div id="modal-content"></div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- path to JS folder -->
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,10 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 3000;
 
-app.use(express.static('public')); // Serve HTML, JS, images
+app.use(express.static(path.join(__dirname, 'public')));
 
-// REST API endpoint that returns stadium data
 app.get('/api/stadiums', (req, res) => {
     const stadiums = [
         { title: "Melbourne Cricket Ground", city: "Melbourne", image: "images/mcg.jpg", link: "About MCG", description: "Australia’s largest stadium and home of cricket and AFL." },
@@ -13,7 +13,11 @@ app.get('/api/stadiums', (req, res) => {
         { title: "Marvel Stadium", city: "Melbourne", image: "images/marvel.jpg", link: "About Marvel Stadium", description: "Indoor stadium with a retractable roof." },
         { title: "The Gabba", city: "Brisbane", image: "images/gabba.jpg", link: "About The Gabba", description: "Historic cricket ground in Queensland." }
     ];
-    res.json(stadiums); // Send the stadiums as a JSON response
+    res.json(stadiums);
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, () => {
