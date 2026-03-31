@@ -2,26 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stadiums in Australia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper teal">
             <a href="#!" class="brand-logo center">Stadiums in Australia</a>
-            <!-- removed Details / Click Me nav links -->
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="https://github.com/login" target="_blank" rel="noopener" id="navGithub">
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="#clickme" id="navClickMeButton">Click Me</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <div class="container">
-        <div class="row center-align" style="margin: 1rem 0;">
-            <button id="detailsButton" class="btn waves-effect waves-light">Details</button>
-            <button id="clickMeButton" class="btn waves-effect waves-light">Click Me</button>
-        </div>
-
         <div class="row" id="card-section"></div>
 
         <div id="stadium-modal" class="modal">

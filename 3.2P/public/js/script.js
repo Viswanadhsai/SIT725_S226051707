@@ -1,7 +1,7 @@
 const addCards = (items) => {
-    $("#card-section").empty();
-    items.forEach((item, index) => {
-        const card = `
+  $("#card-section").empty();
+  items.forEach((item, index) => {
+    const card = `
       <div class="col s12 m4 center-align">
         <div class="card medium">
           <div class="card-image waves-effect waves-block waves-light">
@@ -13,34 +13,26 @@ const addCards = (items) => {
           </div>
         </div>
       </div>`;
-        $("#card-section").append(card);
-    });
+    $("#card-section").append(card);
+  });
 
-    $(".stadium-link").off("click").on("click", function () {
-        const idx = $(this).data("index");
-        const stadium = items[idx];
-        $("#modal-content").html(`
+  $(".stadium-link").off("click").on("click", function () {
+    const idx = $(this).data("index");
+    const stadium = items[idx];
+    $("#modal-content").html(`
       <h5>${stadium.title}</h5>
       <p><strong>City:</strong> ${stadium.city}</p>
       <p>${stadium.description}</p>
     `);
-        M.Modal.getInstance($("#stadium-modal")).open();
-    });
+    M.Modal.getInstance($("#stadium-modal")).open();
+  });
 };
 
 $(document).ready(() => {
-    $('.modal').modal();
+  $('.modal').modal();
 
-    const openDetails = () => {
-        $("#modal-content").html(`
-      <h5>Welcome!</h5>
-      <p>This is a demo modal opened by clicking the details button.</p>
-    `);
-        M.Modal.getInstance($("#stadium-modal")).open();
-    };
-
-    const openForm = () => {
-        $("#modal-content").html(`
+  const openForm = () => {
+    $("#modal-content").html(`
       <h5>Enter your details</h5>
       <div class="row">
         <div class="input-field col s6">
@@ -66,38 +58,33 @@ $(document).ready(() => {
         </div>
       </div>
     `);
-        M.Modal.getInstance($("#stadium-modal")).open();
+    M.Modal.getInstance($("#stadium-modal")).open();
 
-        $('#saveUserForm').off('click').on('click', (event) => {
-            event.preventDefault();
-            const firstName = $('#firstName').val().trim();
-            const lastName = $('#lastName').val().trim();
-            const email = $('#userEmail').val().trim();
-            const password = $('#userPassword').val().trim();
+    $('#saveUserForm').off('click').on('click', (event) => {
+      event.preventDefault();
+      const firstName = $('#firstName').val().trim();
+      const lastName = $('#lastName').val().trim();
+      const email = $('#userEmail').val().trim();
+      const password = $('#userPassword').val().trim();
 
-            if (!firstName || !lastName || !email || !password) {
-                M.toast({ html: 'Please complete all fields.' });
-                return;
-            }
+      if (!firstName || !lastName || !email || !password) {
+        M.toast({ html: 'Please complete all fields.' });
+        return;
+      }
 
-            console.log('Submitted user details:', { firstName, lastName, email, password });
-
-            $('#modal-content').html(`
+      $('#modal-content').html(`
         <h5>Submitted Details</h5>
         <p><strong>First Name:</strong> ${firstName}</p>
         <p><strong>Last Name:</strong> ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Password:</strong> ${password}</p>
       `);
-        });
-    };
-
-    $('#detailsButton, #navDetailsButton').click(openDetails);
-    $('#clickMeButton, #navClickMeButton').click(openForm);
-
-    $.getJSON('/api/stadiums', (stadiums) => {
-        addCards(stadiums);
-    }).fail(() => {
-        console.error('Could not fetch /api/stadiums');
     });
+  };
+
+  $('#navClickMeButton').click(openForm);
+
+  $.getJSON('/api/stadiums', (stadiums) => {
+    addCards(stadiums);
+  }).fail(() => console.error('Could not fetch /api/stadiums'));
 });

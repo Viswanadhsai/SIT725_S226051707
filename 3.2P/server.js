@@ -16,10 +16,6 @@ app.get('/api/stadiums', (req, res) => {
     res.json(stadiums);
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
-app.listen(port, () => {
-    console.log("App listening to: " + port)
-});
+app.listen(port, () => console.log(`App listening on ${port}`));
