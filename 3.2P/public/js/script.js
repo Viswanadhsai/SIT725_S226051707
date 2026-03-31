@@ -58,10 +58,12 @@ $(document).ready(() => {
         </div>
       </div>
     `);
+
     M.Modal.getInstance($("#stadium-modal")).open();
 
     $('#saveUserForm').off('click').on('click', (event) => {
       event.preventDefault();
+
       const firstName = $('#firstName').val().trim();
       const lastName = $('#lastName').val().trim();
       const email = $('#userEmail').val().trim();
@@ -71,6 +73,13 @@ $(document).ready(() => {
         M.toast({ html: 'Please complete all fields.' });
         return;
       }
+
+      console.log("Form submitted:", {
+        firstName,
+        lastName,
+        email,
+        password
+      });
 
       $('#modal-content').html(`
         <h5>Submitted Details</h5>
