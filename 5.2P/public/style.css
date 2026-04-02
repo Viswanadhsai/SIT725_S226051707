@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #111827;
+    color: #f3f4f6;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #9ca3af;
+    margin-bottom: 30px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #374151;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    background: #1f2937;
+    padding: 10px 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.year {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.author {
+    color: #d1d5db;
+    margin-bottom: 4px;
+}
+
+.meta {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* genre colors */
+.dot-sf {
+    background: #3b82f6;
+}
+
+.dot-classic {
+    background: #ef4444;
+}
+
+.dot-historical {
+    background: #84cc16;
+}
+
+.dot-fantasy {
+    background: #a855f7;
+}
+
+.dot-default {
+    background: #f59e0b;
+}
