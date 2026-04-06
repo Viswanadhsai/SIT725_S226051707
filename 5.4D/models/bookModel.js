@@ -1,11 +1,5 @@
 const mongoose = require("mongoose");
 
-// Remove ALL previously registered models (prevents overwrite errors)
-// delete mongoose.connection.models["Book"];
-// delete mongoose.connection.models["Books"];
-// delete mongoose.connection.models["book"];
-// delete mongoose.connection.models["books"];
-
 const BookSchema = new mongoose.Schema({
     id: {
         type: String,
@@ -39,7 +33,7 @@ const BookSchema = new mongoose.Schema({
         minlength: 10
     },
     price: {
-        type: mongoose.Schema.Types.Decimal128,   // ← FIX THAT MAKES T12 PASS
+        type: mongoose.Schema.Types.Decimal128,
         required: false
     },
     createdAt: {
@@ -48,7 +42,7 @@ const BookSchema = new mongoose.Schema({
         immutable: true
     }
 }, {
-    collection: "books"   // ← FORCE correct collection name
+    collection: "books"
 });
 
 module.exports = mongoose.model("Book", BookSchema);

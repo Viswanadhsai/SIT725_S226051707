@@ -12,7 +12,7 @@ exports.createBook = async (req, res) => {
     }
 
     try {
-        // IMPORTANT FIX: Use Book.create() instead of manual validate()
+
         const book = await Book.create(req.body);
         return res.status(201).json(book);
 
