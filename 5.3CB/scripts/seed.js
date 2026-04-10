@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Book = require("../models/bookModel");
 
-mongoose
-    .connect("mongodb+srv://viswanadhsai26_db_user:auU5kZBVAs2rWbCG@cluster0.kshd1xc.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb://127.0.0.1:27017/booksDB")
     .then(async () => {
         console.log("Connected for seeding");
 
@@ -54,4 +53,4 @@ mongoose
         console.log("Seed complete");
         process.exit();
     })
-    .catch((err) => console.error(err));
+    .catch(err => console.error(err));

@@ -1,6 +1,6 @@
 const Book = require("../models/bookModel");
 
-exports.getAllBooks = async (req, res) => {
+exports.getAllBooks = async (_req, res) => {
     try {
         const books = await Book.find({});
 
@@ -11,7 +11,7 @@ exports.getAllBooks = async (req, res) => {
             genre: b.genre,
             year: b.year,
             summary: b.summary,
-            price: parseFloat(b.price.toString())   // FIX
+            price: parseFloat(b.price.toString())
         }));
 
         res.json(formatted);
@@ -32,7 +32,7 @@ exports.getBookById = async (req, res) => {
             genre: book.genre,
             year: book.year,
             summary: book.summary,
-            price: parseFloat(book.price.toString())   // FIX
+            price: parseFloat(book.price.toString())
         };
 
         res.json(formatted);
