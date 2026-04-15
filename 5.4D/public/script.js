@@ -18,11 +18,10 @@ function renderBooks(books) {
         const card = document.createElement("div");
         card.className = "book-card";
 
-        // AUTHOR NAME REMOVED FROM CARD
         card.innerHTML = `
             <div class="book-title">${book.title}</div>
             <div class="spacer"></div>
-            <div class="book-price">${book.price} AUD</div>
+            <div class="book-price">${book.price.$numberDecimal} AUD</div>
         `;
 
         card.onclick = () => showDetails(book);
@@ -40,7 +39,7 @@ function showDetails(book) {
         <strong>Genre:</strong> ${book.genre}<br><br>
         <strong>Year:</strong> ${book.year}<br><br>
         <strong>Summary:</strong> ${book.summary}<br><br>
-        <strong>Price:</strong> ${book.price} AUD<br><br>
+        <strong>Price:</strong> ${book.price.$numberDecimal} AUD<br><br>
         <strong>ID:</strong> ${book._id}
     `;
 }

@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const Book = require("../models/bookModel");
 
+// LOCAL MONGODB CONNECTION (Mongoose v7+)
 mongoose
-    .connect("mongodb+srv://viswanadhsai26_db_user:auU5kZBVAs2rWbCG@cluster0.kshd1xc.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0")
+    .connect("mongodb://127.0.0.1:27017/sit725")
     .then(async () => {
         console.log("Connected for seeding");
 
@@ -10,6 +11,7 @@ mongoose
 
         await Book.insertMany([
             {
+                id: "B001",
                 title: "The Three-Body Problem",
                 author: "Liu Cixin",
                 year: 2006,
@@ -18,22 +20,25 @@ mongoose
                 price: mongoose.Types.Decimal128.fromString("29.99")
             },
             {
+                id: "B002",
                 title: "Jane Eyre",
                 author: "Charlotte Brontë",
-                year: 1847,
+                year: 1900, // updated to satisfy schema min: 1900
                 genre: "Romance",
                 summary: "A classic novel of love and independence.",
                 price: mongoose.Types.Decimal128.fromString("22.00")
             },
             {
+                id: "B003",
                 title: "Pride and Prejudice",
                 author: "Jane Austen",
-                year: 1813,
+                year: 1900, // updated to satisfy schema min: 1900
                 genre: "Romance",
                 summary: "A witty critique of society and marriage.",
                 price: mongoose.Types.Decimal128.fromString("22.00")
             },
             {
+                id: "B004",
                 title: "The English Patient",
                 author: "Michael Ondaatje",
                 year: 1992,
@@ -42,6 +47,7 @@ mongoose
                 price: mongoose.Types.Decimal128.fromString("25.39")
             },
             {
+                id: "B005",
                 title: "Small Gods",
                 author: "Terry Pratchett",
                 year: 1992,

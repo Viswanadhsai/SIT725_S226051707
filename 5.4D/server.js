@@ -15,8 +15,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/books', bookRoutes);
 
+// LOCAL MONGODB CONNECTION (Mongoose v7+)
 mongoose
-    .connect("mongodb+srv://viswanadhsai26_db_user:auU5kZBVAs2rWbCG@cluster0.kshd1xc.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0")
+    .connect("mongodb://127.0.0.1:27017/sit725")
     .then(() => {
         console.log("MongoDB connected");
         app.listen(3000, () => console.log("Server running on port 3000"));
