@@ -12,9 +12,27 @@ app.get('/hello', (req, res) => {
     res.status(200).json({ message: "Hello world" });
 });
 
-function addNumbers(a, b) {
-    return a + b;
+// ----------------------
+// MULTIPLICATION FUNCTION
+// ----------------------
+function multiplyNumbers(a, b) {
+    return a * b;
 }
+
+// ----------------------
+// MULTIPLY API ENDPOINT
+// ----------------------
+app.get('/multiply', (req, res) => {
+    const a = Number(req.query.a);
+    const b = Number(req.query.b);
+
+    if (isNaN(a) || isNaN(b)) {
+        return res.status(400).json({ error: "Invalid input" });
+    }
+
+    const result = multiplyNumbers(a, b);
+    res.json({ result });
+});
 
 if (require.main === module) {
     app.listen(port, () => {
@@ -22,4 +40,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = { app, addNumbers };
+module.exports = { app, multiplyNumbers };

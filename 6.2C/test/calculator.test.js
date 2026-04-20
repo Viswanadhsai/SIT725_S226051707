@@ -26,18 +26,18 @@ describe("API Tests", function () {
 });
 
 // ----------------------
-// CALCULATION FUNCTION TESTS 
+// MULTIPLICATION FUNCTION TESTS 
 // ----------------------
-const { addNumbers } = require("../server");
+const { multiplyNumbers } = require("../server");
 
-describe("addNumbers() Function Tests", function () {
+describe("multiplyNumbers() Function Tests", function () {
 
-    it("should correctly add two numbers", function () {
-        expect(addNumbers(10, 15)).to.equal(25);
+    it("should correctly multiply two numbers", function () {
+        expect(multiplyNumbers(3, 4)).to.equal(12);
     });
 
-    it("should correctly add negative and positive numbers", function () {
-        expect(addNumbers(-7, 12)).to.equal(5);
+    it("should correctly multiply negative and positive numbers", function () {
+        expect(multiplyNumbers(-5, 6)).to.equal(-30);
     });
 
 });
