@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Emoji Reaction Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Real-Time Emoji Reaction Board</h1>
+    <p>Click an emoji and watch the counts update instantly across all clients.</p>
+
+    <div class="container">
+        <button class="emoji-btn" onclick="sendReaction('like')">👍</button>
+        <div class="counter" id="likeCount">0</div>
+    </div>
+
+    <div class="container">
+        <button class="emoji-btn" onclick="sendReaction('laugh')">😂</button>
+        <div class="counter" id="laughCount">0</div>
+    </div>
+
+    <div class="container">
+        <button class="emoji-btn" onclick="sendReaction('angry')">😡</button>
+        <div class="counter" id="angryCount">0</div>
+    </div>
+
+    <div class="container">
+        <button class="emoji-btn" onclick="sendReaction('love')">❤️</button>
+        <div class="counter" id="loveCount">0</div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
