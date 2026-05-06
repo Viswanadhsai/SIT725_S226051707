@@ -1,10 +1,7 @@
-const Book = require("../models/bookModel");
+const bookService = require("../services/bookService");
 
-// -----------------------------
 // CREATE BOOK
-// -----------------------------
 exports.createBook = async (req, res) => {
-
     const allowed = ["id", "title", "author", "year", "genre", "summary", "price"];
     const unknown = Object.keys(req.body).filter(f => !allowed.includes(f));
     if (unknown.length > 0) {
@@ -12,23 +9,17 @@ exports.createBook = async (req, res) => {
     }
 
     try {
-
-        const book = await Book.create(req.body);
+        const book = await bookService.createBook(req.body);
         return res.status(201).json(book);
-
     } catch (err) {
-
         if (err.code === 11000) {
             return res.status(409).json({ error: "Duplicate ID" });
         }
-
         return res.status(400).json({ error: err.message || "Bad request" });
     }
 };
 
-// -----------------------------
 // UPDATE BOOK
-// -----------------------------
 exports.updateBook = async (req, res) => {
     const id = req.params.id;
 
@@ -50,50 +41,36 @@ exports.updateBook = async (req, res) => {
     }
 
     try {
-        const updated = await Book.findOneAndUpdate(
-            { id },
-            req.body,
-            { returnDocument: "after", runValidators: true }
-        );
-
+        const updated = await bookService.updateBook(id, req.body);
         if (!updated) {
             return res.status(404).json({ error: "Book not found" });
         }
-
         return res.status(200).json(updated);
-
     } catch (err) {
-
         if (err.name === "ValidationError") {
             return res.status(400).json({ error: err.message });
         }
-
         if (err.name === "CastError") {
             return res.status(400).json({ error: "Invalid type" });
         }
-
         return res.status(500).json({ error: "Server error" });
     }
 };
 
-// -----------------------------
 // GET ALL BOOKS
-// -----------------------------
 exports.getBooks = async (req, res) => {
     try {
-        const books = await Book.find();
+        const books = await bookService.getAllBooks();
         return res.status(200).json(books);
     } catch (err) {
         return res.status(500).json({ error: "Server error" });
     }
 };
 
-// -----------------------------
 // GET SINGLE BOOK
-// -----------------------------
 exports.getBook = async (req, res) => {
     try {
-        const book = await Book.findOne({ id: req.params.id });
+        const book = await bookService.getBookById(req.params.id);
         if (!book) return res.status(404).json({ error: "Book not found" });
         return res.status(200).json(book);
     } catch (err) {
@@ -101,12 +78,10 @@ exports.getBook = async (req, res) => {
     }
 };
 
-// -----------------------------
 // DELETE BOOK
-// -----------------------------
 exports.deleteBook = async (req, res) => {
     try {
-        const deleted = await Book.findOneAndDelete({ id: req.params.id });
+        const deleted = await bookService.deleteBook(req.params.id);
         if (!deleted) return res.status(404).json({ error: "Book not found" });
         return res.status(200).json({ message: "Book deleted" });
     } catch (err) {
